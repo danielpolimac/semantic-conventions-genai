@@ -191,6 +191,11 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
+When a JSON-RPC error code classifies as an error, `error.type` and
+`rpc.response.status_code` have the same value. Unlike
+`rpc.response.status_code`, `error.type` also records errors for which
+no JSON-RPC error response is available.
+
 **[2] `jsonrpc.request.id`:** Under the [JSON-RPC specification](https://www.jsonrpc.org/specification), the `id` property may be a string, number, null, or omitted entirely. When omitted, the request is treated as a notification. Using `null` is not equivalent to omitting the `id`, but it is discouraged.
 Instrumentations SHOULD NOT capture this attribute when the `id` is `null` or omitted.
 
@@ -202,6 +207,7 @@ Instrumentations SHOULD NOT capture this attribute when the `id` is `null` or om
 returned in the error response.
 
 All JSON-RPC error codes SHOULD be considered errors.
+`error.type` also records errors without a JSON-RPC error response.
 
 **[6] `gen_ai.operation.name`:** SHOULD be set to `execute_tool` when the operation describes a tool call and SHOULD NOT be set otherwise.
 
@@ -417,6 +423,11 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
+When a JSON-RPC error code classifies as an error, `error.type` and
+`rpc.response.status_code` have the same value. Unlike
+`rpc.response.status_code`, `error.type` also records errors for which
+no JSON-RPC error response is available.
+
 **[2] `jsonrpc.request.id`:** Under the [JSON-RPC specification](https://www.jsonrpc.org/specification), the `id` property may be a string, number, null, or omitted entirely. When omitted, the request is treated as a notification. Using `null` is not equivalent to omitting the `id`, but it is discouraged.
 Instrumentations SHOULD NOT capture this attribute when the `id` is `null` or omitted.
 
@@ -438,6 +449,8 @@ receiver could not serve and SHOULD NOT be considered errors:
 - `-32002` ([`Resource not found`](https://modelcontextprotocol.io/specification/2025-11-25/server/resources#error-handling))
 
 Any other error code SHOULD be considered an error.
+`error.type` is only recorded when the operation fails and also
+records errors without a JSON-RPC error response.
 
 **[6] `client.address`:** When observed from the server side, and when communicating through an intermediary, `client.address` SHOULD represent the client address behind any intermediaries,  for example proxies, if it's available.
 
@@ -635,10 +648,16 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
+When a JSON-RPC error code classifies as an error, `error.type` and
+`rpc.response.status_code` have the same value. Unlike
+`rpc.response.status_code`, `error.type` also records errors for which
+no JSON-RPC error response is available.
+
 **[2] `rpc.response.status_code`:** This attribute records the [JSON-RPC error code](https://www.jsonrpc.org/specification#error_object)
 returned in the error response.
 
 All JSON-RPC error codes SHOULD be considered errors.
+`error.type` also records errors without a JSON-RPC error response.
 
 **[3] `gen_ai.operation.name`:** SHOULD be set to `execute_tool` when the operation describes a tool call and SHOULD NOT be set otherwise.
 
@@ -802,6 +821,11 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
+When a JSON-RPC error code classifies as an error, `error.type` and
+`rpc.response.status_code` have the same value. Unlike
+`rpc.response.status_code`, `error.type` also records errors for which
+no JSON-RPC error response is available.
+
 **[2] `rpc.response.status_code`:** This attribute records the [JSON-RPC error code](https://www.jsonrpc.org/specification#error_object)
 returned in the error response.
 
@@ -816,6 +840,8 @@ receiver could not serve and SHOULD NOT be considered errors:
 - `-32002` ([`Resource not found`](https://modelcontextprotocol.io/specification/2025-11-25/server/resources#error-handling))
 
 Any other error code SHOULD be considered an error.
+`error.type` is only recorded when the operation fails and also
+records errors without a JSON-RPC error response.
 
 **[3] `gen_ai.operation.name`:** SHOULD be set to `execute_tool` when the operation describes a tool call and SHOULD NOT be set otherwise.
 

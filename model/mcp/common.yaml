@@ -41,6 +41,11 @@ attribute_groups:
           [CallToolResult](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/9c8a44e47e16b789a1f9d47c89ea23ed13a37cf9/schema/2025-06-18/schema.ts#L715)
           is returned with `isError` set to `true`, this attribute SHOULD be set to
           `tool_error`.
+
+          When a JSON-RPC error code classifies as an error, `error.type` and
+          `rpc.response.status_code` have the same value. Unlike
+          `rpc.response.status_code`, `error.type` also records errors for which
+          no JSON-RPC error response is available.
       - ref: mcp.method.name
         requirement_level: required
       - ref: mcp.protocol.version
@@ -58,6 +63,7 @@ attribute_groups:
           returned in the error response.
 
           All JSON-RPC error codes SHOULD be considered errors.
+          `error.type` also records errors without a JSON-RPC error response.
 
   - id: mcp.server.status.attributes
     visibility: internal
@@ -81,6 +87,8 @@ attribute_groups:
           - `-32002` ([`Resource not found`](https://modelcontextprotocol.io/specification/2025-11-25/server/resources#error-handling))
 
           Any other error code SHOULD be considered an error.
+          `error.type` is only recorded when the operation fails and also
+          records errors without a JSON-RPC error response.
 
   - id: mcp.network.protocol.attributes
     visibility: internal
