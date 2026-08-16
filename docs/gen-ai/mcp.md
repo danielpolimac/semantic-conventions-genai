@@ -191,8 +191,9 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
-When a JSON-RPC error code classifies as an error, `error.type` and
-`rpc.response.status_code` have the same value. Unlike
+When an error response contains a JSON-RPC error code that indicates
+an operation failure, `error.type` and `rpc.response.status_code` both
+use its string representation. Unlike
 `rpc.response.status_code`, `error.type` also records errors for which
 no JSON-RPC error response is available.
 
@@ -423,8 +424,9 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
-When a JSON-RPC error code classifies as an error, `error.type` and
-`rpc.response.status_code` have the same value. Unlike
+When an error response contains a JSON-RPC error code that indicates
+an operation failure, `error.type` and `rpc.response.status_code` both
+use its string representation. Unlike
 `rpc.response.status_code`, `error.type` also records errors for which
 no JSON-RPC error response is available.
 
@@ -648,8 +650,9 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
-When a JSON-RPC error code classifies as an error, `error.type` and
-`rpc.response.status_code` have the same value. Unlike
+When an error response contains a JSON-RPC error code that indicates
+an operation failure, `error.type` and `rpc.response.status_code` both
+use its string representation. Unlike
 `rpc.response.status_code`, `error.type` also records errors for which
 no JSON-RPC error response is available.
 
@@ -821,8 +824,9 @@ string representation of the error. When
 is returned with `isError` set to `true`, this attribute SHOULD be set to
 `tool_error`.
 
-When a JSON-RPC error code classifies as an error, `error.type` and
-`rpc.response.status_code` have the same value. Unlike
+When an error response contains a JSON-RPC error code that indicates
+an operation failure, `error.type` and `rpc.response.status_code` both
+use its string representation. Unlike
 `rpc.response.status_code`, `error.type` also records errors for which
 no JSON-RPC error response is available.
 
