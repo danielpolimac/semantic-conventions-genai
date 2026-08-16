@@ -49,7 +49,6 @@ metrics:
     stability: development
     attributes:
       - ref_group: mcp.session.metrics.attributes
-      - ref_group: mcp.client.address_and_port.attributes
 
   - name: mcp.server.session.duration
     requirement_level: recommended
