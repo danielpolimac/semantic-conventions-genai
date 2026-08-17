@@ -11,6 +11,12 @@ attribute_groups:
     visibility: internal
     attributes:
       - ref: mcp.protocol.version
+      - ref: network.protocol.name
+        requirement_level:
+          recommended: When applicable.
+      - ref: jsonrpc.protocol.version
+        requirement_level:
+          recommended: When it's not `2.0`.
       - ref: error.type
         requirement_level:
           conditionally_required: If and only if session ends with an error.
@@ -49,6 +55,7 @@ metrics:
     stability: development
     attributes:
       - ref_group: mcp.session.metrics.attributes
+      - ref_group: mcp.client.address_and_port.attributes
 
   - name: mcp.server.session.duration
     requirement_level: recommended
