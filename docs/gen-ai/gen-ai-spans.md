@@ -1268,7 +1268,7 @@ of the span sampling decision with:
   and before they are serialized to JSON string;
 - the span instance
 
-For an operation that fails, the hook SHOULD receive the instructions and inputs
+For an operation that ends in an error, the hook SHOULD receive the instructions and inputs
 available to the instrumentation. It SHOULD receive outputs only when the provider
 returned them, including partial streamed output. Instrumentations SHOULD NOT
 synthesize output content for a failed operation.
