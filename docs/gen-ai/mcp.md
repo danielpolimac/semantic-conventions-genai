@@ -181,9 +181,9 @@ to avoid high cardinality span names.
 `error.type` SHOULD be set to the string representation of that code. See
 `rpc.response.status_code` for which codes classify as errors. When an HTTP
 response ends the operation in error without a JSON-RPC error code,
-`http.response.status_code` SHOULD be recorded according to the HTTP semantic
-conventions and `error.type` SHOULD be set to the string representation of the
-HTTP status code. Otherwise
+`error.type` SHOULD be set to the string representation of the HTTP status
+code. Separately enabled HTTP instrumentation records
+`http.response.status_code` according to the HTTP semantic conventions. Otherwise
 (for example on timeouts or other transport errors) it SHOULD be set following the
 [`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/v1.44.0/docs/registry/attributes/error.md)
 guidance.
@@ -411,9 +411,9 @@ to avoid high cardinality span names.
 `error.type` SHOULD be set to the string representation of that code. See
 `rpc.response.status_code` for which codes classify as errors. When an HTTP
 response ends the operation in error without a JSON-RPC error code,
-`http.response.status_code` SHOULD be recorded according to the HTTP semantic
-conventions and `error.type` SHOULD be set to the string representation of the
-HTTP status code. Otherwise
+`error.type` SHOULD be set to the string representation of the HTTP status
+code. Separately enabled HTTP instrumentation records
+`http.response.status_code` according to the HTTP semantic conventions. Otherwise
 (for example on timeouts or other transport errors) it SHOULD be set following the
 [`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/v1.44.0/docs/registry/attributes/error.md)
 guidance.
@@ -633,9 +633,9 @@ of `[ 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 30, 60, 120, 300 ]`.
 `error.type` SHOULD be set to the string representation of that code. See
 `rpc.response.status_code` for which codes classify as errors. When an HTTP
 response ends the operation in error without a JSON-RPC error code,
-`http.response.status_code` SHOULD be recorded according to the HTTP semantic
-conventions and `error.type` SHOULD be set to the string representation of the
-HTTP status code. Otherwise
+`error.type` SHOULD be set to the string representation of the HTTP status
+code. Separately enabled HTTP instrumentation records
+`http.response.status_code` according to the HTTP semantic conventions. Otherwise
 (for example on timeouts or other transport errors) it SHOULD be set following the
 [`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/v1.44.0/docs/registry/attributes/error.md)
 guidance.
@@ -804,9 +804,9 @@ of `[ 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 30, 60, 120, 300 ]`.
 `error.type` SHOULD be set to the string representation of that code. See
 `rpc.response.status_code` for which codes classify as errors. When an HTTP
 response ends the operation in error without a JSON-RPC error code,
-`http.response.status_code` SHOULD be recorded according to the HTTP semantic
-conventions and `error.type` SHOULD be set to the string representation of the
-HTTP status code. Otherwise
+`error.type` SHOULD be set to the string representation of the HTTP status
+code. Separately enabled HTTP instrumentation records
+`http.response.status_code` according to the HTTP semantic conventions. Otherwise
 (for example on timeouts or other transport errors) it SHOULD be set following the
 [`error.type`](https://github.com/open-telemetry/semantic-conventions/blob/v1.44.0/docs/registry/attributes/error.md)
 guidance.
