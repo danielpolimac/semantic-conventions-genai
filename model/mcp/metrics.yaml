@@ -14,6 +14,9 @@ attribute_groups:
       - ref: network.protocol.name
         requirement_level:
           recommended: When applicable.
+        examples:
+          - "http"
+          - "websocket"
       - ref: jsonrpc.protocol.version
         requirement_level:
           recommended: When it's not `2.0`.
