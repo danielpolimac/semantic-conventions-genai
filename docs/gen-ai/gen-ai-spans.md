@@ -1312,6 +1312,12 @@ recorded in its structured form on events.
 Instrumentation MAY provide a configuration option allowing to truncate properties
 such as individual message contents, preserving JSON structure.
 
+When configured to record these attributes for an operation that ends in an
+error, instrumentation SHOULD record the instructions and inputs available to
+it. It SHOULD record outputs only when the operation produced them, including
+partial streamed output. Instrumentation SHOULD NOT synthesize output content
+for a failed operation.
+
 #### Uploading content to external storage
 
 Instrumentations MAY support user-defined in-process hooks to handle content upload.
@@ -1327,10 +1333,11 @@ of the span sampling decision with:
   and before they are serialized to JSON string;
 - the span instance
 
-For an operation that ends in an error, the hook SHOULD receive the instructions and inputs
-available to the instrumentation. It SHOULD receive outputs only when the operation
-produced them, including partial streamed output. Instrumentations SHOULD NOT
-synthesize output content for a failed operation.
+The hook SHOULD receive the same instructions, inputs, and outputs that the
+instrumentation would record in these attributes. In particular, for an
+operation that ends in an error, it SHOULD receive the instructions and inputs
+available to the instrumentation, and outputs only when the operation produced
+them, including partial streamed output.
 
 The hook implementation SHOULD be able to enrich and modify provided span, instructions,
 and message objects.
