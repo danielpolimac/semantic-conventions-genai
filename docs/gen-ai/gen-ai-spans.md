@@ -276,6 +276,11 @@ output messages. `gen_ai.response.finish_reasons` remains aligned with the
 generations returned by the provider, not with a filtered or truncated
 `gen_ai.output.messages` value.
 
+When an operation ends in an error, this attribute SHOULD only be set
+when the operation produced output, including partial streamed output.
+Instrumentation SHOULD NOT synthesize output content for a failed
+operation.
+
 > [!Warning]
 > This attribute is likely to contain sensitive information including user/PII data.
 
@@ -823,6 +828,11 @@ output messages. `gen_ai.response.finish_reasons` remains aligned with the
 generations returned by the provider, not with a filtered or truncated
 `gen_ai.output.messages` value.
 
+When an operation ends in an error, this attribute SHOULD only be set
+when the operation produced output, including partial streamed output.
+Instrumentation SHOULD NOT synthesize output content for a failed
+operation.
+
 > [!Warning]
 > This attribute is likely to contain sensitive information including user/PII data.
 
@@ -1312,12 +1322,6 @@ recorded in its structured form on events.
 Instrumentation MAY provide a configuration option allowing to truncate properties
 such as individual message contents, preserving JSON structure.
 
-When configured to record these attributes for an operation that ends in an
-error, instrumentation SHOULD record the instructions and inputs available to
-it. It SHOULD record outputs only when the operation produced them, including
-partial streamed output. Instrumentation SHOULD NOT synthesize output content
-for a failed operation.
-
 #### Uploading content to external storage
 
 Instrumentations MAY support user-defined in-process hooks to handle content upload.
@@ -1334,10 +1338,7 @@ of the span sampling decision with:
 - the span instance
 
 The hook SHOULD receive the same instructions, inputs, and outputs that the
-instrumentation would record in these attributes. In particular, for an
-operation that ends in an error, it SHOULD receive the instructions and inputs
-available to the instrumentation, and outputs only when the operation produced
-them, including partial streamed output.
+instrumentation would record in these attributes.
 
 The hook implementation SHOULD be able to enrich and modify provided span, instructions,
 and message objects.
